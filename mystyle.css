@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+body{
+    margin:0;
+}
+
+.header {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+}
+/* 创建三个不相等的列 */
+.column {
+    float: left;
+    padding: 10px;
+    height:80%;
+}
+
+/* 左右两侧宽度 */
+.column.side {
+    width: 25%;
+}
+
+/* 中间区域宽度 */
+.column.middle {
+    width: 50%;
+}
+
+/* 列后面清除浮动 */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+    margin-top: 20px;
+}
