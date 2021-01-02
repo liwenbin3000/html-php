@@ -20,18 +20,18 @@ class dataBase{
 		else{echo"关闭失败<br/>";}
 	}	
 	
-	public function addArticle($title,$content,$time){
+	public function addNews($title,$content,$time){
 		mysqli_select_db($this->conn,"class");
 		
-		$statement="insert into article (title,content,time) value('$title','$content','$time')";
+		$statement="insert into news (title,content,time) value('$title','$content','$time')";
 		mysqli_query($this->conn,$statement);
 		
 		echo"存入成功";
 	}
 	
-	public function deleteArticle($id){
+	public function deleteNews($id){
 		mysqli_select_db($this->conn,"class");
-		$statement="delete from `article` where id='$id'";
+		$statement="delete from `news` where id='$id'";
 		if(mysqli_query($this->conn,$statement)){
 		            echo "删除数据成功！";
 		        } else {
@@ -39,10 +39,35 @@ class dataBase{
 		        }
 	}
 	
-	public function addComment($article,$content,$people,$time){
+	public function getNewsTitle(){
+		mysqli_select_db($this->conn,"class");
+		$statement="SELECT * FROM `news` ";
+		$res=mysqli_query($this->conn,$statement);
+		while($row = mysqli_fetch_array($res))
+		{
+			echo "<tr>";
+				echo "<td><a href=news.php?Id=".$row['id'].">" . $row['title'] . "</a></td>";
+			echo "</tr><br/>";
+
+		}
+	}
+	public function getNewsContent($id){
+		mysqli_select_db($this->conn,"class");
+		$statement="SELECT * FROM `news` where id='$id' ";
+		$res=mysqli_query($this->conn,$statement);
+		while($row = mysqli_fetch_array($res))
+		{
+			echo "<tr>";
+				echo "<td>" . $row['content'] . "</td>";
+			echo "</tr><br/>";
+		
+	}
+	}
+	
+	public function addComment($news,$content,$people,$time){
 		mysqli_select_db($this->conn,"class");
 		
-		$statement="insert into comment (article,content,people,time) value('$article','$content','$people','$time')";
+		$statement="insert into comment (news,content,people,time) value('$news','$content','$people','$time')";
 		mysqli_query($this->conn,$statement);
 		
 		echo"存入成功";
