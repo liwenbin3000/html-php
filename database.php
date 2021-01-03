@@ -83,10 +83,10 @@ class dataBase{
 		        }
 	}
 	
-	public function addPeople($name,$password,$administrtor,$time){
+	public function addPeople($name,$password,$administrator,$time){
 		mysqli_select_db($this->conn,"class");
 		
-		$statement="insert into comment (name,password,administrtor,time) value('$name','$password','$administrtor','$time')";
+		$statement="insert into people (name,password,administrator,time) value('$name','$password','$administrator','$time')";
 		mysqli_query($this->conn,$statement);
 		
 		echo"存入成功";
