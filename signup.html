@@ -4,11 +4,12 @@
     <title>新闻管理系统</title>
     <link rel="stylesheet" type="text/css" href="mystyle.css">
 	<script src="myScript.js"></script>
+	
 </head>
 <body>
 
 <div class="container">
-    <form action="" method="post" class="login-form">
+    <form action="signup.php" method="post" class="login-form">
         <h2>注册</h2>
         <input type="text" name="username" placeholder="用户名" onblur="ajaxRequest(this)" />
 		<span id="username_1">&nbsp</span>
@@ -16,11 +17,17 @@
 		<span id="password_1">&nbsp</span>
         <input type="password" name="password-confirm" placeholder="密码确认" onblur="ajaxRequest(this)" />
 		<span id="password_confirm_1">&nbsp</span>
-        <button type="submit">登录</button>
+        <button type="submit" id="submit">注册</button>
         <a href="login.html">返回登录</a>
     </form>
+	<script type="text/javascript">
+		subObj = document.getElementById("submit");
+		if (subObj.addEventListener) {
+			subObj.addEventListener("click", validateAll, false)
+		} else {
+			subObj.attachEvent("onclick", validateAll)
+		}
+	</script>
 </div>
-
-
 </body>
 </html>

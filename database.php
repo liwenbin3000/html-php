@@ -86,7 +86,7 @@ class dataBase{
 	public function addPeople($name,$password,$administrator,$time){
 		mysqli_select_db($this->conn,"class");
 		
-		$statement="insert into people (name,password,administrator,time) value('$name','$password','$administrator','$time')";
+		$statement="insert into poeple (name,password,administrator,time) value ('$name','$password','$administrator','$time')";
 		mysqli_query($this->conn,$statement);
 		
 		echo"存入成功";
