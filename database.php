@@ -103,14 +103,16 @@ class dataBase{
 	}
 	
 	public function checkPeople($account){
-		mysqli_connect_db($this->conn,"class");
+		mysqli_select_db($this->conn,"class");
 		$statement="SELECT * FROM `people` where name='$account'";
 		$res=mysqli_query($this->conn,$statement);
+		$flag=false;
 		while($row = mysqli_fetch_array($res))
 		{
-			return true;
+			$flag=true;
 	    }
-	
+		return $flag;
+	}
 }
 
 
