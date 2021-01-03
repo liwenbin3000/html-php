@@ -14,8 +14,8 @@ body {
 }
 
 .login-form {
-    width: 240px;
-    height: 260px;
+    width: 260px;
+    height: 340px;
     display: flex;
     flex-direction: column;
     padding: 40px;
@@ -102,4 +102,7 @@ body {
     transition:1s;
     transform:translateX(320px);
     opacity:1;
+}
+span{
+    font-size:2px;
 }
