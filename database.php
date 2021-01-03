@@ -10,9 +10,7 @@ class dataBase{
 			echo "链接失败<br/>";
 			exit;
 		}
-		else{
-			echo "链接成功<br/>";
-		}
+		
 	}
 	//关闭数据库
 	public function close(){
@@ -26,8 +24,6 @@ class dataBase{
 		
 		$statement="insert into news (title,content,time) value('$title','$content','$time')";
 		mysqli_query($this->conn,$statement);
-		
-		echo"存入成功";
 	}
 	//根据id删除新闻
 	public function deleteNews($id){
@@ -71,8 +67,6 @@ class dataBase{
 		
 		$statement="insert into comment (news,content,people,time) value('$news','$content','$people','$time')";
 		mysqli_query($this->conn,$statement);
-		
-		echo"存入成功";
 	}
 	//根据id删除评论
 	public function deleteComment($id){
@@ -90,8 +84,7 @@ class dataBase{
 		
 		$statement="insert into people (name,password,administrator,time) values ('$name','$password','$administrator','$time')";
 		mysqli_query($this->conn,$statement);
-		
-		echo"存入成功";
+
 	}
 	//根据id删除用户
 	public function deletePeople($id){
@@ -108,15 +101,15 @@ class dataBase{
 		mysqli_select_db($this->conn,"class");
 		$statement="SELECT * FROM `people` where name='$account'";
 		$res=mysqli_query($this->conn,$statement);
-		$flag=0;
+		$flag="用户名不存在";
 		while($row = mysqli_fetch_array($res))
 		{
-			$flag=1;
-			$statement1="SELECT * FROM `people` where name='$account'and password='$account_password'";
+			$flag="密码错误";
+			$statement1="SELECT * FROM `people` where name='$account'and password='$password'";
 			$res1=mysqli_query($this->conn,$statement1);
 			while($row = mysqli_fetch_array($res1))
 			{
-				$flag=2;
+				$flag=$row["id"];
 			}
 	    }
 		return $flag;
