@@ -15,8 +15,8 @@ class dataBase{
 	//关闭数据库
 	public function close(){
 		$res=mysqli_close($this->conn);
-		if($res){echo"关闭成功<br/>";}
-		else{echo"关闭失败<br/>";}
+		if(!$res)
+		{echo"关闭失败<br/>";}
 	}	
 	//增加新的新闻 参数为 标题 内容 时间
 	public function addNews($title,$content,$time){
@@ -43,7 +43,7 @@ class dataBase{
 		while($row = mysqli_fetch_array($res))
 		{
 			echo "<tr>";
-				echo "<td><a href=news.php?Id=".$row['id'].">" . $row['title'] . "</a></td>";
+				echo "<td><a href=news.php?newsId=".$row['id'].">" . $row['title'] . "</a></td>";
 			echo "</tr><br/>";
 
 		}
@@ -56,7 +56,8 @@ class dataBase{
 		while($row = mysqli_fetch_array($res))
 		{
 			echo "<tr>";
-				echo "<td>" . $row['content'] . "</td>";
+			    echo "<td id='newsTitle'>标题" . $row['title'] . "</td><br/>";
+				echo "<td id='newsContent'>主要内容" . $row['content'] . "</td>";
 			echo "</tr><br/>";
 		
 	}
@@ -96,7 +97,19 @@ class dataBase{
 		            echo "删除数据失败：".mysqli_error();
 		        }
 	}
-	//登陆时检验 参数为 用户名 密码 用户名不存在返回0 密码错误返回1 登陆检验通过返回2
+	//根据id获取用户名
+	public function getPeopleName($id){
+		mysqli_select_db($this->conn,"class");
+		$statement="SELECT * FROM `people` where id='$id'";
+		$res=mysqli_query($this->conn,$statement);
+		while($row = mysqli_fetch_array($res))
+		{
+			$flag=$row["name"];
+		}
+		return $flag;
+	}
+	
+	//登陆时检验 参数为 用户名 密码 用户名不存在返回“用户名不存在” 密码错误返回“密码错误” 登陆检验通过返回用户ID
 	public function checkPeople($account,$password){
 		mysqli_select_db($this->conn,"class");
 		$statement="SELECT * FROM `people` where name='$account'";

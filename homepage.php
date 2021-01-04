@@ -5,8 +5,6 @@ $username='root';
 $password='';
 $dbname='class';
 
-$newsid=$_GET['newsId'];
-
 $db = new database();
 $db->connect($hostname,$username,$password,$dbname);
 if (isset($_COOKIE["ID"]))	{	
@@ -29,24 +27,13 @@ if (isset($_COOKIE["ID"]))	{
 					</div>
 				</div>
 				<div id='wrapper'>
-					<div id='today'>";
+					<div id='today'>
+						今日要闻<br/>";
 						
-						$db->getNewsContent($newsid);
+						$db->getNewsTitle();
 	echo"	
 					</div>
 				</div>
-				<div id='discussion_area'>
-				</div>
-				
-				<div id='comment_area'>
-				<form>
-				 <input type='texteara'>
-				</form>
-				</div>
-				
-				
-				
-				
 			</body>
 		</html>	
 		"	;
@@ -57,14 +44,6 @@ echo "<html>
 			<meta charset='UTF-8'>
 			<title>新闻管理系统</title>
 			<link rel='stylesheet' type='text/css' href='homepagestyle.css'>
-			<script type='text/javascript'>
-			function myFunction(){
-				if (".!isset($_COOKIE['ID'])."){
-					alert('请先登录再发表评论');
-					window.location.href='login.php';
-				}
-			}
-			</script>
 		</head>
 		<body>
 			<div id='head'>
@@ -75,20 +54,12 @@ echo "<html>
 				</div>
 			</div>
 			<div id='wrapper'>
-				<div id='today'>";
-					$db->getNewsContent($newsid);
+				<div id='today'>
+					今日要闻<br/>";
+					$db->getNewsTitle();
 	echo"				
 				</div>
 				
-			</div>
-			<div id='discussion_area'>
-			</div>
-			
-			<div id='comment_area'>
-			<form>
-			 <input type='texteara'></input>
-			 <input type='button' value='发表评论' onclick='myFunction()'></input>
-			</form>
 			</div>
 		</body>
 	</html>";
