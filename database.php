@@ -96,7 +96,19 @@ class dataBase{
 		            echo "删除数据失败：".mysqli_error();
 		        }
 	}
-	//登陆时检验 参数为 用户名 密码 用户名不存在返回0 密码错误返回1 登陆检验通过返回2
+	//根据id获取用户名
+	public function getPeopleName($id){
+		mysqli_select_db($this->conn,"class");
+		$statement="SELECT * FROM `people` where id='$id'";
+		$res=mysqli_query($this->conn,$statement);
+		while($row = mysqli_fetch_array($res))
+		{
+			$flag=$row["name"];
+		}
+		return $flag;
+	}
+	
+	//登陆时检验 参数为 用户名 密码 用户名不存在返回“用户名不存在” 密码错误返回“密码错误” 登陆检验通过返回用户ID
 	public function checkPeople($account,$password){
 		mysqli_select_db($this->conn,"class");
 		$statement="SELECT * FROM `people` where name='$account'";

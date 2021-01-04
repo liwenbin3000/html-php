@@ -17,7 +17,11 @@ if(isset($_POST["submit"])){
 		$tip="密码错误";
 	}else{
 		$id=$db->checkPeople($account,$account_password);
-	     header("Location:homepage.html?ID=$id");
+		ini_set("session.cookie_lifetime","3600");
+		session_start();
+		$_SESSION["username"]=$db->getPeopleName($id);	
+		setcookie("ID",session_id(),time()+24*3600);
+	    header("Location:homepage.php?ID=$id");
 	}
 	
 echo 
