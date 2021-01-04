@@ -1,4 +1,12 @@
 <?php
+include "database.php";
+$hostname='localhost';
+$username='root';
+$password='';
+$dbname='class';
+
+$db = new database();
+$db->connect($hostname,$username,$password,$dbname);
 if (isset($_COOKIE["ID"]))	{	
 			ini_set("session.cookie_lifetime","3600");
 			session_start();
@@ -20,7 +28,10 @@ if (isset($_COOKIE["ID"]))	{
 				</div>
 				<div id='wrapper'>
 					<div id='today'>
-						今日要闻
+						今日要闻<br/>";
+						
+						$db->getNewsTitle();
+	echo"	
 					</div>
 				</div>
 			</body>
@@ -44,11 +55,15 @@ echo "<html>
 			</div>
 			<div id='wrapper'>
 				<div id='today'>
-					今日要闻
+					今日要闻<br/>";
+					$db->getNewsTitle();
+	echo"				
 				</div>
 				
 			</div>
 		</body>
 	</html>";
+	
+	$db->close();
 }
 ?>

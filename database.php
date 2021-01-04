@@ -15,8 +15,8 @@ class dataBase{
 	//关闭数据库
 	public function close(){
 		$res=mysqli_close($this->conn);
-		if($res){echo"关闭成功<br/>";}
-		else{echo"关闭失败<br/>";}
+		if(!$res)
+		{echo"关闭失败<br/>";}
 	}	
 	//增加新的新闻 参数为 标题 内容 时间
 	public function addNews($title,$content,$time){
