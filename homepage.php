@@ -15,14 +15,15 @@ if (isset($_COOKIE["ID"]))	{
 			<head>
 				<meta charset='UTF-8'>
 				<title>新闻管理系统</title>
-				<link rel='stylesheet' type='text/css' href='homepagestyle.css'>
+				<link rel='stylesheet' type='text/css' href='homepagestyle?v=1'>
 			</head>
 			<body>
+			<div class='container'>
 				<div id='head'>
 					<div id='user'>
 						<div id='login'>
-							<p>"."{$_SESSION["username"]}"."</p>
-							<a href='quit.php'>退出登录</a>
+							<span>"."{$_SESSION["username"]}"."</span>
+							<a href='quit.php'><button id='logbutt'>退出登录</button></a>
 						</div>
 					</div>
 				</div>
@@ -34,6 +35,7 @@ if (isset($_COOKIE["ID"]))	{
 	echo"	
 					</div>
 				</div>
+				</div>
 			</body>
 		</html>	
 		"	;
@@ -43,13 +45,14 @@ echo "<html>
 		<head>
 			<meta charset='UTF-8'>
 			<title>新闻管理系统</title>
-			<link rel='stylesheet' type='text/css' href='homepagestyle.css'>
+			<link rel='stylesheet' type='text/css' href='homepagestyle.css?v=1'>
 		</head>
 		<body>
+		<div class='container'>
 			<div id='head'>
 				<div id='user'>
 					<div id='login'>
-						<a href='login.php'>登录</a>
+						<a href='login.php'><button id='logbutt'>登录</button></a>
 					</div>
 				</div>
 			</div>
@@ -61,9 +64,9 @@ echo "<html>
 				</div>
 				
 			</div>
+			</div>
 		</body>
 	</html>";
 	
 	$db->close();
 }
-?>
