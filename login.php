@@ -8,6 +8,7 @@ if(isset($_POST["submit"])){
 
 	$account=$_POST["username"];
 	$account_password=$_POST["password"];
+	$type=$_GET['type'];
 
 	$db = new database();
 	$db->connect($hostname,$username,$password,$dbname);
@@ -21,7 +22,8 @@ if(isset($_POST["submit"])){
 		session_start();
 		$_SESSION["username"]=$db->getPeopleName($id);	
 		setcookie("ID",session_id(),time()+24*3600);
-	    header("Location:homepage.php?ID=$id");
+	    if($type==0){header("Location:homepage.php?ID=$id");}
+		else{header("Location:news.php?newsId=$type");}
 	}
 	
 echo 

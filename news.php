@@ -65,7 +65,7 @@ echo "<html>
 			function myFunction(){
 				if (".!isset($_COOKIE['ID'])."){
 					alert('请先登录再发表评论');
-					window.location.href='login.php';
+					window.location.href='login.php?type=$newsid';
 				}
 			}
 			</script>
@@ -74,7 +74,7 @@ echo "<html>
 			<div id='head'>
 				<div id='user'>
 					<div id='login'>
-						<a href='login.php'>登录</a>
+						<a href='login.php?'>登录</a>
 					</div>
 				</div>
 			</div>

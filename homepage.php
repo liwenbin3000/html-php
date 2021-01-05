@@ -52,7 +52,7 @@ echo "<html>
 			<div id='head'>
 				<div id='user'>
 					<div id='login'>
-						<a href='login.php'><button id='logbutt'>登录</button></a>
+						<a href='login.php?type=0'><button id='logbutt'>登录</button></a>
 					</div>
 				</div>
 			</div>
