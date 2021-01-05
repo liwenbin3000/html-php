@@ -43,7 +43,7 @@ class dataBase{
 		while($row = mysqli_fetch_array($res))
 		{
 			echo "<tr>";
-				echo "<td><a href=news.php?Id=".$row['id'].">" . $row['title'] . "</a></td>";
+				echo "<td><a href=news.php?newsId=".$row['id'].">" . $row['title'] . "</a></td>";
 			echo "</tr><br/>";
 
 		}
@@ -56,7 +56,8 @@ class dataBase{
 		while($row = mysqli_fetch_array($res))
 		{
 			echo "<tr>";
-				echo "<td>" . $row['content'] . "</td>";
+			    echo "<td id='newsTitle'>标题" . $row['title'] . "</td><br/>";
+				echo "<td id='newsContent'>主要内容" . $row['content'] . "</td>";
 			echo "</tr><br/>";
 		
 	}
