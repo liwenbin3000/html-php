@@ -10,6 +10,7 @@ $newsid=$_GET['newsId'];
 
 $db = new database();
 $db->connect($hostname,$username,$password,$dbname);
+//登陆后界面
 if (isset($_COOKIE["ID"]))	{	
 			ini_set("session.cookie_lifetime","3600");
 			session_start();
@@ -42,9 +43,12 @@ if (isset($_COOKIE["ID"]))	{
 				</div>
 				
 				<div id='comment_area'>
-				<form>
-				<input type='texteara'></input>
-				 <input type='button' value='发表评论' onclick='myFunction()'></input>
+				<form action='solvecomment.php' method='post'>
+				<input type='texteara' name='comment'></input>
+				<input type='hidden' name='newsid' value=".$newsid."></input>
+				<input type='hidden' name='account' value=".$_SESSION["username"]."></input>
+				
+				<input type='submit' value='发表评论'></input>
 				</form>
 				</div>
 				
@@ -55,6 +59,7 @@ if (isset($_COOKIE["ID"]))	{
 		</html>	
 		"	;
 }
+//未登录界面
 else{
 echo "<html>
 		<head>
