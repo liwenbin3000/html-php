@@ -13,5 +13,5 @@ $db = new database();
 $db->connect($hostname,$username,$password,$dbname);
 $db->addPeople($account,$password1,0,$time);
 $db->close();
-header('Location:login.html');
+header('Location:login.php');
 ?>

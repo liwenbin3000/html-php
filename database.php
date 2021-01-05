@@ -15,8 +15,8 @@ class dataBase{
 	//关闭数据库
 	public function close(){
 		$res=mysqli_close($this->conn);
-		if($res){echo"关闭成功<br/>";}
-		else{echo"关闭失败<br/>";}
+		if(!$res)
+		{echo"关闭失败<br/>";}
 	}	
 	//增加新的新闻 参数为 标题 内容 时间
 	public function addNews($title,$content,$time){
@@ -43,7 +43,7 @@ class dataBase{
 		while($row = mysqli_fetch_array($res))
 		{
 			echo "<tr>";
-				echo "<td><a href=news.php?Id=".$row['id'].">" . $row['title'] . "</a></td>";
+				echo "<td><a href=news.php?newsId=".$row['id'].">" . $row['title'] . "</a></td>";
 			echo "</tr><br/>";
 
 		}
@@ -56,16 +56,17 @@ class dataBase{
 		while($row = mysqli_fetch_array($res))
 		{
 			echo "<tr>";
-				echo "<td>" . $row['content'] . "</td>";
+			    echo "<td id='newsTitle'>标题" . $row['title'] . "</td><br/>";
+				echo "<td id='newsContent'>主要内容" . $row['content'] . "</td>";
 			echo "</tr><br/>";
 		
 	}
 	}
-	//增加评论 参数为 对应新闻 内容 评论人名字 时间
-	public function addComment($news,$content,$people,$time){
+	//增加评论 参数为 对应新闻id 内容 评论人名字 时间
+	public function addComment($newsid,$content,$people,$time){
 		mysqli_select_db($this->conn,"class");
 		
-		$statement="insert into comment (news,content,people,time) value('$news','$content','$people','$time')";
+		$statement="insert into comment (newsid,content,people,time) value('$newsid','$content','$people','$time')";
 		mysqli_query($this->conn,$statement);
 	}
 	//根据id删除评论
@@ -77,6 +78,20 @@ class dataBase{
 		        } else {
 		            echo "删除数据失败：".mysqli_error();
 		        }
+	}
+	//获取某条新闻的相关评论并输出
+	public function getComments($newsid){
+		mysqli_select_db($this->conn,"class");
+		$statement="SELECT * FROM `comment` where newsid=$newsid ";
+		$res=mysqli_query($this->conn,$statement);
+		while($row = mysqli_fetch_array($res))
+		{
+			echo "<tr>";
+				echo "<td>". $row['people']." : " . $row['content'] . "</td></br>";
+				echo "<td>".$row['time']."</td>";
+			echo "</tr><br/>";
+		
+		}
 	}
 	//增加用户 参数为 用户名 密码 是否为管理员 注册时间
 	public function addPeople($name,$password,$administrator,$time){
@@ -96,7 +111,19 @@ class dataBase{
 		            echo "删除数据失败：".mysqli_error();
 		        }
 	}
-	//登陆时检验 参数为 用户名 密码 用户名不存在返回0 密码错误返回1 登陆检验通过返回2
+	//根据id获取用户名
+	public function getPeopleName($id){
+		mysqli_select_db($this->conn,"class");
+		$statement="SELECT * FROM `people` where id='$id'";
+		$res=mysqli_query($this->conn,$statement);
+		while($row = mysqli_fetch_array($res))
+		{
+			$flag=$row["name"];
+		}
+		return $flag;
+	}
+	
+	//登陆时检验 参数为 用户名 密码 用户名不存在返回“用户名不存在” 密码错误返回“密码错误” 登陆检验通过返回用户ID
 	public function checkPeople($account,$password){
 		mysqli_select_db($this->conn,"class");
 		$statement="SELECT * FROM `people` where name='$account'";
