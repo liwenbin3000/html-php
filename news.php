@@ -35,16 +35,12 @@ if (isset($_COOKIE["ID"]))	{
 	echo"	
 					</div>
 				</div>
-				
-				<div id='discussion_area'>".
-				$db->getComments($newsid);
-	echo"
+				<div id='discussion_area'>
 				</div>
 				
 				<div id='comment_area'>
 				<form>
-				 <input type='texteara'></input>
-				 <input type='button' value='发表评论' onclick='myFunction()'></input>
+				 <input type='texteara'>
 				</form>
 				</div>
 				

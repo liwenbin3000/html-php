@@ -61,7 +61,7 @@ if(isset($_POST["username"])){
 elseif(isset($_POST["password"])){
 	$result.='<name>password_1</name>';
 	if(!checkpw($_POST["password"])){
-			$result.='<content>6-16个数字</content>';
+		$result.='<content>6-16个数字</content>';
 	}else{
 		$result.='<content>密码有效</content>';
 	}
