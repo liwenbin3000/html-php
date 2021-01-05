@@ -6,6 +6,7 @@ class dataBase{
 	public function connect($localname,$username,$password){
 		$conn=mysqli_connect($localname,$username,$password);
 		$this->conn=$conn;
+		mysqli_query($this->conn,"set names utf8");
 		if($conn->connect_error){
 			echo "链接失败<br/>";
 			exit;

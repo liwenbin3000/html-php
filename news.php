@@ -1,4 +1,5 @@
 <?php
+
 include "database.php";
 $hostname='localhost';
 $username='root';
@@ -35,12 +36,15 @@ if (isset($_COOKIE["ID"]))	{
 	echo"	
 					</div>
 				</div>
-				<div id='discussion_area'>
+				<div id='discussion_area'>";
+				    $db->getComments($newsid);
+	echo"
 				</div>
 				
 				<div id='comment_area'>
 				<form>
-				 <input type='texteara'>
+				<input type='texteara'></input>
+				 <input type='button' value='发表评论' onclick='myFunction()'></input>
 				</form>
 				</div>
 				
