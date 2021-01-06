@@ -15,6 +15,13 @@ body{
     float:right;
     border:5px solid red;
 }
+#homebutt{
+    float:left;
+    width:75px;
+    height:30px;
+    margin-top: 15px;
+    border-radius:8px;
+}
 #user{
 float:right;
 }
@@ -32,6 +39,16 @@ float:right;
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 10px;
+}
+#news{
+    width:80%;
+    margin:10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#newsTitle{
+    margin-top: 10px;
 }
 #logbutt{
     width:75px;
@@ -101,10 +118,30 @@ float:right;
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 10px;
 }
+#comment_area form{
+    width:100%;
+    height:100%;
 
+}
+#commentbutt{
+    margin:0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 #comment_text{
     width:80%;
-    height:60%;
+    height:70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:5px auto;
+    border:2px solid lightslategray;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
 }
 #discussion_area{
     width:20%;
@@ -118,6 +155,6 @@ float:right;
     border-radius: 10px;
 }
 #discussion_area table{
-    margin:10px 10px;
+    margin:0 auto;
     border:5px solid red;
 }

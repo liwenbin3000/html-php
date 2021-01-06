@@ -23,7 +23,11 @@ if (isset($_COOKIE["ID"]))	{
 			</head>
 			<body>
 			<div class='container'>
-				<div id='head'>
+				<div id='head'>			
+				<div>
+				<a href='homepage.php?'><button id='homebutt'>返回主页</button></a>
+			</div>
+				
 					<div id='user'>
 						<div id='login'>
 							<span>"."{$_SESSION["username"]}"."</span>
@@ -38,8 +42,7 @@ if (isset($_COOKIE["ID"]))	{
 	echo"	
 					</div>
 				</div>
-				<div id='discussion_area'>
-	                <table>
+				<div id='discussion_area'><table>
 	                <tr>
 	                <td>
 	                <p>评论</p>
@@ -53,16 +56,13 @@ if (isset($_COOKIE["ID"]))	{
 				
 				<div id='comment_area'>
 				<form action='solvecomment.php' method='post'>
-				<input type='texteara' name='comment'></input>
+				<textarea name='comment' id='comment_text'></textarea>
 				<input type='hidden' name='newsid' value=".$newsid."></input>
 				<input type='hidden' name='account' value=".$_SESSION["username"]."></input>
 				
-				<input type='submit' value='发表评论'></input>
+				<input type='submit' value='发表评论' id='commentbutt'></input>
 				</form>
 				</div>
-				</div>
-				<div>
-					<a href='homepage.php?ID=".$newsid."'>返回主页</a>
 				</div>
 			</body>
 		</html>	
@@ -87,6 +87,9 @@ echo "<html>
 		<body>
 		<div class='container'>
 			<div id='head'>
+						<div id='homebutt'>
+				<a href='homepage.php'><button>返回主页</button></a>
+			</div>
 				<div id='user'>
 					<div id='login'>
 						<a href='login.php?'><button id='logbutt'>登录</button></a>
@@ -100,8 +103,7 @@ echo "<html>
 				</div>
 				
 			</div>
-			<div id='discussion_area'>
-			<table>
+			<div id='discussion_area'><table>
 	                <tr>
 	                <td>
 	                <p>评论</p>
@@ -112,14 +114,12 @@ echo "<html>
 			
 			<div id='comment_area'>
 			<form>
-			 <input type='texteara' id='comment_text'></input>
-			 <input type='button' value='发表评论' onclick='myFunction()'></input>
+			 <textarea id='comment_text'></textarea>
+			 <input type='button' value='发表评论' onclick='myFunction()' id='commentbutt'></input>
 			</form>
 			</div>
 			</div>
-			<div>
-				<a href='homepage.php'>返回主页</a>
-			</div>
+
 		</body>
 	</html>";
 	

@@ -56,10 +56,10 @@ class dataBase{
 		$res=mysqli_query($this->conn,$statement);
 		while($row = mysqli_fetch_array($res))
 		{
-			echo "<tr>";
-			    echo "<td id='newsTitle'>标题" . $row['title'] . "</td><br/>";
-				echo "<td id='newsContent'>主要内容" . $row['content'] . "</td>";
-			echo "</tr><br/>";
+			echo "<table id='news'><tr>";
+			    echo "<td id='newsTitle'><h3>" . $row['title'] . "</h3></td></tr>";
+				echo "<tr></tr><td id='newsContent'>" . $row['content'] . "</td>";
+			echo "</tr></table>";
 		
 	}
 	}
@@ -88,9 +88,9 @@ class dataBase{
 		while($row = mysqli_fetch_array($res))
 		{
 			echo "<tr>";
-				echo "<td>". $row['people']." : " . $row['content'] . "</td></br>";
+				echo "<td>". $row['people']." : " . $row['content'] . "</td>";
 				echo "<td>".$row['time']."</td>";
-			echo "</tr><br/>";
+			echo "</tr>";
 		
 		}
 	}
