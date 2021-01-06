@@ -60,9 +60,9 @@ if (isset($_COOKIE["ID"]))	{
 				<input type='submit' value='发表评论'></input>
 				</form>
 				</div>
-				
-				
-				
+				</div>
+				<div>
+					<a href='homepage.php?ID=".$newsid."'>返回主页</a>
 				</div>
 			</body>
 		</html>	
@@ -116,6 +116,9 @@ echo "<html>
 			 <input type='button' value='发表评论' onclick='myFunction()'></input>
 			</form>
 			</div>
+			</div>
+			<div>
+				<a href='homepage.php'>返回主页</a>
 			</div>
 		</body>
 	</html>";
