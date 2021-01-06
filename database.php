@@ -36,6 +36,7 @@ class dataBase{
 		            echo "删除数据失败：".mysqli_error();
 		        }
 	}
+	
 	//获取询问标题并且按照顺序输出
 	public function getNewsTitle(){
 		mysqli_select_db($this->conn,"class");
@@ -49,6 +50,7 @@ class dataBase{
 
 		}
 	}
+
 	//获取相应id的新闻内容
 	public function getNewsContent($id){
 		mysqli_select_db($this->conn,"class");
