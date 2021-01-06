@@ -142,6 +142,18 @@ class dataBase{
 	    }
 		return $flag;
 	}
+	
+	public function getAdmin($id){
+		mysqli_select_db($this->conn,"class");
+		$statement="SELECT * FROM `people` where id='$id'";
+		$res=mysqli_query($this->conn,$statement);
+		$admin=0;
+		while($row = mysqli_fetch_array($res))
+		{
+			$admin=$row["administrator"];
+		}
+		return $admin;
+	}
 }
 
 

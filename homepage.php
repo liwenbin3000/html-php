@@ -8,9 +8,10 @@ $dbname='class';
 $db = new database();
 $db->connect($hostname,$username,$password,$dbname);
 if (isset($_COOKIE["ID"]))	{	
-			ini_set("session.cookie_lifetime","3600");
-			session_start();
-		echo"
+	ini_set("session.cookie_lifetime","3600");
+	session_start();
+	$admin=$db->getAdmin($_GET["ID"]);
+	echo"
 		<html>
 			<head>
 				<meta charset='UTF-8'>
@@ -23,8 +24,11 @@ if (isset($_COOKIE["ID"]))	{
 					<div id='user'>
 						<div id='login'>
 							<span>"."{$_SESSION["username"]}"."</span>
-							<a href='quit.php'><button id='logbutt'>退出登录</button></a>
-						</div>
+							<a href='quit.php'><button id='logbutt'>退出登录</button></a>";
+	if($admin==1){
+		echo"<a href='admin.php'>后台管理系统<a>";
+	}
+	echo"				</div>
 					</div>
 				</div>
 				<div id='wrapper'>

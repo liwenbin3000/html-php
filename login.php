@@ -8,8 +8,9 @@ if(isset($_POST["submit"])){
 
 	$account=$_POST["username"];
 	$account_password=$_POST["password"];
-	$type=$_GET['type'];
-
+	if(isset($_GET['type'])){
+		$type=$_GET['type'];
+	}
 	$db = new database();
 	$db->connect($hostname,$username,$password,$dbname);
 	if($db->checkPeople($account,$account_password)=="用户名不存在"){

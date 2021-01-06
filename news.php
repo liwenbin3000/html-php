@@ -12,8 +12,8 @@ $db = new database();
 $db->connect($hostname,$username,$password,$dbname);
 //登陆后界面
 if (isset($_COOKIE["ID"]))	{	
-			ini_set("session.cookie_lifetime","3600");
-			session_start();
+	ini_set("session.cookie_lifetime","3600");
+	session_start();
 		echo"
 		<html>
 			<head>
