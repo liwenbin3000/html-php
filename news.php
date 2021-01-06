@@ -22,11 +22,12 @@ if (isset($_COOKIE["ID"]))	{
 				<link rel='stylesheet' type='text/css' href='homepagestyle.css'>
 			</head>
 			<body>
+			<div class='container'>
 				<div id='head'>
 					<div id='user'>
 						<div id='login'>
-							<p>"."{$_SESSION["username"]}"."</p>
-							<a href='quit.php'>退出登录</a>
+							<span>"."{$_SESSION["username"]}"."</span>
+							<a href='quit.php'><button id='logbutt'>退出登录</button></a>
 						</div>
 					</div>
 				</div>
@@ -37,9 +38,17 @@ if (isset($_COOKIE["ID"]))	{
 	echo"	
 					</div>
 				</div>
-				<div id='discussion_area'>";
+				<div id='discussion_area'>
+	                <table>
+	                <tr>
+	                <td>
+	                <p>评论</p>
+</td>
+</tr>";
+
 				    $db->getComments($newsid);
 	echo"
+                    </table>
 				</div>
 				
 				<div id='comment_area'>
@@ -54,7 +63,7 @@ if (isset($_COOKIE["ID"]))	{
 				
 				
 				
-				
+				</div>
 			</body>
 		</html>	
 		"	;
@@ -76,10 +85,11 @@ echo "<html>
 			</script>
 		</head>
 		<body>
+		<div class='container'>
 			<div id='head'>
 				<div id='user'>
 					<div id='login'>
-						<a href='login.php?'>登录</a>
+						<a href='login.php?'><button id='logbutt'>登录</button></a>
 					</div>
 				</div>
 			</div>
@@ -95,9 +105,10 @@ echo "<html>
 			
 			<div id='comment_area'>
 			<form>
-			 <input type='texteara'></input>
+			 <input type='texteara' id='comment_text'></input>
 			 <input type='button' value='发表评论' onclick='myFunction()'></input>
 			</form>
+			</div>
 			</div>
 		</body>
 	</html>";

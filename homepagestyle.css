@@ -20,7 +20,7 @@ body{
     display:block;
 }
 #today{
-    width:80%;
+    width:70%;
     height:100%;
     float:left;
     margin:20px;
@@ -36,4 +36,82 @@ body{
     height:30px;
     margin-top: 15px;
     border-radius:8px;
+}
+#wrap {
+    overflow: hidden;
+    position: relative;
+    width: 200px;
+    height: 100px;
+    margin: 100px auto 0;
+}
+
+#wrap .img-list {
+    display: flex;
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s ease;
+}
+
+#wrap .img-list img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+#wrap a {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: block;
+    width: 40px;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    user-select: none;
+    font-size: 30px;
+    text-align: center;
+    line-height: 70px;
+    text-decoration: none;
+}
+
+#wrap a.left {
+    left: 0;
+}
+
+#wrap a.right {
+    right: 0;
+}
+#comment_area{
+    width:70%;
+    height:30%;
+    float:left;
+    margin:20px;
+    border:2px solid lightslategray;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+}
+
+#comment_text{
+    width:80%;
+    height:60%;
+}
+#discussion_area{
+    width:20%;
+    float:left;
+    margin:20px;
+    border:2px solid lightslategray;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+}
+#discussion_area table{
+    margin:10px 10px;
+    border:5px solid red;
 }
