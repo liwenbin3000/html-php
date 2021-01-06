@@ -12,9 +12,11 @@ body{
 }
 #head{
     width:100%;
+    float:right;
+    border:5px solid red;
 }
 #user{
-    float:right;
+float:right;
 }
 #wrapper{
     display:block;
@@ -31,7 +33,7 @@ body{
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 10px;
 }
-#logbutt,{
+#logbutt{
     width:75px;
     height:30px;
     margin-top: 15px;
