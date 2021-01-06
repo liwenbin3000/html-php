@@ -50,6 +50,20 @@ class dataBase{
 
 		}
 	}
+	public function getNewsTitle1(){
+		mysqli_select_db($this->conn,"class");
+		$statement="SELECT * FROM `news` ";
+		$res=mysqli_query($this->conn,$statement);
+		while($row = mysqli_fetch_array($res))
+		{
+			echo "<tr>";
+				echo "<td>" . $row['title'] . "</td>";
+				echo "<td><a>删除新闻</a></td>";
+				echo "<td><a>修改新闻</a></td>";
+			echo "</tr><br/>";
+	
+		}
+	}
 
 	//获取相应id的新闻内容
 	public function getNewsContent($id){
