@@ -90,8 +90,8 @@ class dataBase{
 		while($row = mysqli_fetch_array($res))
 		{
 			echo "<tr>";
-				echo "<td>". $row['people']." : " . $row['content'] . "</td>";
-				echo "<td>".$row['time']."</td>";
+				echo "<td>". $row['people']." :<br> " . $row['content'] . "</td>";
+				echo "<td id='time'>".$row['time']."</td>";
 			echo "</tr>";
 		
 		}

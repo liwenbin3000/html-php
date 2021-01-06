@@ -23,15 +23,21 @@ if (isset($_COOKIE["ID"]))	{
 			</head>
 			<body>
 			<div class='container'>
-				<div id='head'>			
-				<div>
-				<a href='homepage.php?'><button id='homebutt'>返回主页</button></a>
-			</div>
+				<div id='head'>	
+				<div id='homebutt'>		
+				<ul>
+						<li>
+						<a href='homepage.php'>返回主页</a>
+</li></ul></div>
 				
 					<div id='user'>
 						<div id='login'>
-							<span>"."{$_SESSION["username"]}"."</span>
-							<a href='quit.php'><button id='logbutt'>退出登录</button></a>
+							<ul>
+						<li>
+						<a href='#'>"."{$_SESSION["username"]}"."</a>
+    </li>
+    <li><a href='quit.php'>退出登录</a></li>
+    </ul>
 						</div>
 					</div>
 				</div>
@@ -88,11 +94,17 @@ echo "<html>
 		<div class='container'>
 			<div id='head'>
 						<div id='homebutt'>
-				<a href='homepage.php'><button>返回主页</button></a>
+						<ul>
+						<li>
+						<a href='homepage.php'>返回主页</a>
+</li></ul>
+				
 			</div>
 				<div id='user'>
 					<div id='login'>
-						<a href='login.php?'><button id='logbutt'>登录</button></a>
+						                        <ul><li>
+                        <a href='login.php'>登录</a>
+                        </li></ul>
 					</div>
 				</div>
 			</div>

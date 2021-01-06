@@ -23,8 +23,12 @@ if (isset($_COOKIE["ID"]))	{
 				<div id='head'>
 					<div id='user'>
 						<div id='login'>
-							<span>"."{$_SESSION["username"]}"."</span>
-							<a href='quit.php'><button id='logbutt'>退出登录</button></a>";
+						<ul>
+						<li>
+						<a href='#'>"."{$_SESSION["username"]}"."</a>
+    </li>
+    <li><a href='quit.php'>退出登录</a></li>
+    </ul>";
 	if($admin==1){
 		echo"<a href='admin.php'>后台管理系统<a>";
 	}
@@ -33,12 +37,15 @@ if (isset($_COOKIE["ID"]))	{
 				</div>
 				<div id='wrapper'>
 					<div id='today'>
-						今日要闻<br/>";
+						<table>
+						<tr><td><h2>今日要闻</h2><br/></td></tr>";
 						
 						$db->getNewsTitle();
 	echo"	
+	                </table>
 					</div>
 				</div>
+				<div id='discussion_area'>
 							<div id='picturejs'>
     <div id='wrap'>
       <!-- 图片列表 -->
@@ -56,6 +63,7 @@ if (isset($_COOKIE["ID"]))	{
         <a href='javascript:;' class='right'>&gt;</a>
       </div>
     </div>
+  </div>
   </div>
 
     <script>
@@ -151,7 +159,10 @@ echo "<html>
 			<div id='head'>
 				<div id='user'>
 					<div id='login'>
-						<a href='login.php'><button id='logbutt'>登录</button></a>
+                        <ul><li>
+                        <a href='login.php'>登录</a>
+                        </li></ul>
+						
 					</div>
 				</div>
 			</div>
@@ -163,6 +174,7 @@ echo "<html>
 				</div>
 				
 			</div>
+			<div id='discussion_area'>
             <div id='picturejs'>
     <div id='wrap'>
       <!-- 图片列表 -->
@@ -180,6 +192,7 @@ echo "<html>
         <a href='javascript:;' class='right'>&gt;</a>
       </div>
     </div>
+  </div>
   </div>
 
     <script>

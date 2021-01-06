@@ -66,6 +66,7 @@ body {
     overflow:hidden;
     curser:pointer;
     transition:0.4s;
+    cursor: pointer;
 }
 .login-form button:hover{
     background-color: rgba(179,255,210,0.6);
