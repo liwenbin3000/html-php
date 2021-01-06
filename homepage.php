@@ -10,7 +10,7 @@ $db->connect($hostname,$username,$password,$dbname);
 if (isset($_COOKIE["ID"]))	{	
 	ini_set("session.cookie_lifetime","3600");
 	session_start();
-	$admin=$db->getAdmin($_GET["ID"]);
+	$admin=$db->getAdmin($_SESSION["id"]);
 	echo"
 		<html>
 			<head>

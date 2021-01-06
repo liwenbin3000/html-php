@@ -21,9 +21,10 @@ if(isset($_POST["submit"])){
 		$id=$db->checkPeople($account,$account_password);
 		ini_set("session.cookie_lifetime","3600");
 		session_start();
+		$_SESSION["id"]=$id;
 		$_SESSION["username"]=$db->getPeopleName($id);	
 		setcookie("ID",session_id(),time()+24*3600);
-	    if($type==0){header("Location:homepage.php?ID=$id");}
+	    if($type==0){header("Location:homepage.php?");}
 		else{header("Location:news.php?newsId=$type");}
 	}
 	
