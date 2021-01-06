@@ -163,7 +163,7 @@ echo "<html>
 				</div>
 				
 			</div>
-            			<div id='picturejs'>
+            <div id='picturejs'>
     <div id='wrap'>
       <!-- 图片列表 -->
       <div class='img-list'>

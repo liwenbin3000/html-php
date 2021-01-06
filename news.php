@@ -101,7 +101,14 @@ echo "<html>
 				
 			</div>
 			<div id='discussion_area'>
-			</div>
+			<table>
+	                <tr>
+	                <td>
+	                <p>评论</p>
+	                </td>
+	                </tr>";
+    $db->getComments($newsid);
+    echo"</table></div>
 			
 			<div id='comment_area'>
 			<form>

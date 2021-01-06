@@ -37,6 +37,10 @@ body{
     margin-top: 15px;
     border-radius:8px;
 }
+#picturejs{
+    width:15%;
+    float:left;
+}
 #wrap {
     overflow: hidden;
     position: relative;
