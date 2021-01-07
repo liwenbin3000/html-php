@@ -10,10 +10,13 @@ $newsid=$_GET['newsId'];
 
 $db = new database();
 $db->connect($hostname,$username,$password,$dbname);
+
+
 //登陆后界面
 if (isset($_COOKIE["ID"]))	{	
 	ini_set("session.cookie_lifetime","3600");
 	session_start();
+	$admin=$db->getAdmin($_SESSION["id"]);
 		echo"
 		<html>
 			<head>
@@ -54,8 +57,9 @@ if (isset($_COOKIE["ID"]))	{
 	                <p>评论</p>
 </td>
 </tr>";
-
-				    $db->getComments($newsid);
+                if ($admin==0){
+				    $db->getComments($newsid);}
+				else{$db->getCommentsAdmin($newsid);}
 	echo"
                     </table>
 				</div>

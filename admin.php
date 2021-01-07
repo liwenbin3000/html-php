@@ -13,7 +13,7 @@ echo"
 			<head>
 				<meta charset='UTF-8'>
 				<title>新闻管理系统</title>
-				<script src="myScript.js"></script>
+				<script src='myScript.js'></script>
 			</head>
 			<body>
 			<div class='container'>
@@ -21,7 +21,7 @@ echo"
 					<div id='user'>
 						<span>"."{$_SESSION["username"]}"."</span>
 						<a href='quit.php'><button id='logbutt' onclick=''>退出登录</button></a>
-						<a href='homepage.php?'><button id='homebutt'>返回主页</button></a>
+						<a href='homepage.php'><button id='homebutt'>返回主页</button></a>
 					</div>
 				</div>
 			</div>
@@ -30,6 +30,6 @@ echo"
 					$db->getNewsTitle1();
 echo"	
 				</div>
-				<a herf=''>添加新新闻</a>
+				
 			</div>";
 ?>

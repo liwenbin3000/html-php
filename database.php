@@ -50,6 +50,7 @@ class dataBase{
 
 		}
 	}
+	//管理员模式显示用 type=0,为删除模式 type=1,为修改模式 type=2 为增加模式
 	public function getNewsTitle1(){
 		mysqli_select_db($this->conn,"class");
 		$statement="SELECT * FROM `news` ";
@@ -58,11 +59,11 @@ class dataBase{
 		{
 			echo "<tr>";
 				echo "<td>" . $row['title'] . "</td>";
-				echo "<td><a>删除新闻</a></td>";
-				echo "<td><a>修改新闻</a></td>";
+				echo "<td><a href='changenews.php?type=0&newsid=".$row['id']."'>删除新闻</a></td>";
+				echo "<td><a href='changenews.php?type=1&newsid=".$row['id']."'>修改新闻</a></td>";
 			echo "</tr><br/>";
-	
 		}
+		echo "<a href='changenews.php?type=2&newsid=0'>添加新新闻</a>";
 	}
 
 	//获取相应id的新闻内容
@@ -79,6 +80,30 @@ class dataBase{
 		
 	}
 	}
+	//获取相应id的新闻的所有内容
+	public function getNewsAll($id){
+		mysqli_select_db($this->conn,"class");
+			$statement="SELECT * FROM `news` where id='$id' ";
+			$res=mysqli_query($this->conn,$statement);
+			while($row = mysqli_fetch_array($res))
+			{
+				echo "<form method='post'><tr>";
+				    echo "标题";
+				    echo "<td id='newsTitle' ><input name='newsTitle' type=textarea value=".$row['title']."></input></td></tr>";
+					echo "内容";
+					echo "<td id='newsContent'><input name='newsContent' type=textarea value=".$row['content']."></input></td></tr>";
+					echo "<td><input type=submit value='修改' name='change'></input></td>";
+				echo "</tr></form>";
+			
+		}
+		}
+	//更新相应id的新闻
+	public function updateNews($newsid,$newtitle,$newcontent){
+		mysqli_select_db($this->conn,"class");
+		    $statement="UPDATE `news` SET `title`='$newtitle',`content`='$newcontent' WHERE id='$newsid'";
+            $res=mysqli_query($this->conn,$statement);  
+	}
+	
 	//增加评论 参数为 对应新闻id 内容 评论人名字 时间
 	public function addComment($newsid,$content,$people,$time){
 		mysqli_select_db($this->conn,"class");
@@ -96,18 +121,35 @@ class dataBase{
 		            echo "删除数据失败：".mysqli_error();
 		        }
 	}
-	//获取某条新闻的相关评论并输出
+	//获取某条新闻的相关评论并输出（普通用户模式）
 	public function getComments($newsid){
 		mysqli_select_db($this->conn,"class");
 		$statement="SELECT * FROM `comment` where newsid=$newsid ";
 		$res=mysqli_query($this->conn,$statement);
 		while($row = mysqli_fetch_array($res))
-		{
+		{ 
 			echo "<tr>";
 				echo "<td>". $row['people']." :<br> " . $row['content'] . "</td>";
 				echo "<td id='time'>".$row['time']."</td>";
+				if($row['people']==$_SESSION['username']){
+				echo "<td> 删除评论 </td>";}
 			echo "</tr>";
-		
+		    
+		}
+	}
+	//获取某条新闻的相关评论并输出（管理员模式）
+	public function getCommentsAdmin($newsid){
+		mysqli_select_db($this->conn,"class");
+		$statement="SELECT * FROM `comment` where newsid=$newsid ";
+		$res=mysqli_query($this->conn,$statement);
+		while($row = mysqli_fetch_array($res))
+		{ 
+			echo "<tr>";
+				echo "<td>". $row['people']." :<br> " . $row['content'] . "</td>";
+				echo "<td id='time'>".$row['time']."</td>";
+				echo "<td> 删除评论 </td>";
+			echo "</tr>";
+		    
 		}
 	}
 	//增加用户 参数为 用户名 密码 是否为管理员 注册时间
