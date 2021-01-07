@@ -11,7 +11,9 @@ $db->connect($hostname,$username,$password,$dbname);
 $newsid=$_GET["newsid"];
 $type=$_GET["type"];
 if($type==0){
+	$db->deleteComment($newsid);
 	$db->deleteNews($newsid);
+	
 	header("Location:admin.php");
 }
 if($type==1){
@@ -19,10 +21,11 @@ if($type==1){
 	$newtitle=$_POST['newsTitle'];
 	$newcontent=$_POST['newsContent'];
 	$db->updateNews($newsid,$newtitle,$newcontent);
-	$db->getNewsAll($newsid);
+	header("Location:admin.php");
+	
     }
     else{$db->getNewsAll($newsid);}
-	header("Location:admin.php");
+	
 }
 if($type==2){
 	echo "<form method='post'><tr>";

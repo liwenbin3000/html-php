@@ -50,7 +50,7 @@ class dataBase{
 
 		}
 	}
-	//管理员模式显示用 type=0,为删除模式 type=1,为修改模式 type=2 为增加模式
+	//管理员模式显示用 type=0,为删除模式 type=1,为修改模式 type=2,为增加模式
 	public function getNewsTitle1(){
 		mysqli_select_db($this->conn,"class");
 		$statement="SELECT * FROM `news` ";
@@ -112,9 +112,9 @@ class dataBase{
 		mysqli_query($this->conn,$statement);
 	}
 	//根据id删除评论
-	public function deleteComment($id){
+	public function deleteComment($newsid){
 		mysqli_select_db($this->conn,"class");
-		$statement="delete from `comment` where id='$id'";
+		$statement="delete from `comment` where newsid='$newsid'";
 		if(mysqli_query($this->conn,$statement)){
 		            echo "删除数据成功！";
 		        } else {
@@ -131,8 +131,10 @@ class dataBase{
 			echo "<tr>";
 				echo "<td>". $row['people']." :<br> " . $row['content'] . "</td>";
 				echo "<td id='time'>".$row['time']."</td>";
-				if($row['people']==$_SESSION['username']){
-				echo "<td> 删除评论 </td>";}
+				if(isset($_COOKIE['ID'])){
+					if($row['people']==$_SESSION['username']){
+							echo "<td> 删除评论 </td>";}
+				}
 			echo "</tr>";
 		    
 		}
