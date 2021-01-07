@@ -111,10 +111,20 @@ class dataBase{
 		$statement="insert into comment (newsid,content,people,time) value('$newsid','$content','$people','$time')";
 		mysqli_query($this->conn,$statement);
 	}
-	//根据id删除评论
+	//删除某新闻的所有评论
 	public function deleteComment($newsid){
 		mysqli_select_db($this->conn,"class");
 		$statement="delete from `comment` where newsid='$newsid'";
+		if(mysqli_query($this->conn,$statement)){
+		            echo "删除数据成功！";
+		        } else {
+		            echo "删除数据失败：".mysqli_error();
+		        }
+	}
+	//删除某条评论
+	public function deleteComment2($id){
+		mysqli_select_db($this->conn,"class");
+		$statement="delete from `comment` where id='$id'";
 		if(mysqli_query($this->conn,$statement)){
 		            echo "删除数据成功！";
 		        } else {
@@ -133,7 +143,9 @@ class dataBase{
 				echo "<td id='time'>".$row['time']."</td>";
 				if(isset($_COOKIE['ID'])){
 					if($row['people']==$_SESSION['username']){
-							echo "<td> 删除评论 </td>";}
+							echo "<td><a href=deletecomment.php?newsId=$newsid&commentId=";
+							echo $row['id'];
+							echo "><input type='button' value='删除评论'></input></a> </td>";}
 				}
 			echo "</tr>";
 		    
@@ -149,7 +161,9 @@ class dataBase{
 			echo "<tr>";
 				echo "<td>". $row['people']." :<br> " . $row['content'] . "</td>";
 				echo "<td id='time'>".$row['time']."</td>";
-				echo "<td> 删除评论 </td>";
+				echo "<td><a href=deletecomment.php?newsId=$newsid&commentId=";
+				echo $row['id'];
+				echo "><input type='button' value='删除评论'></input></a> </td>";
 			echo "</tr>";
 		    
 		}
