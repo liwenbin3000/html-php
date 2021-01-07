@@ -123,6 +123,7 @@ float:right;
     height:100%;
 
 }
+
 #commentbutt{
     margin:0 auto;
     display: flex;
@@ -132,6 +133,7 @@ float:right;
 #comment_text{
     width:80%;
     height:70%;
+    resize:none;
     display: flex;
     align-items: center;
     justify-content: center;
