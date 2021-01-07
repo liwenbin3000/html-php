@@ -27,10 +27,9 @@ if (isset($_COOKIE["ID"]))	{
 						<li>
 						<a href='#'>"."{$_SESSION["username"]}"."</a>
     </li>
-    <li><a href='quit.php'>退出登录</a></li>
-    </ul>";
+    <li><a href='quit.php'>退出登录</a></li>";
 	if($admin==1){
-		echo"<a href='admin.php'>后台管理系统<a>";
+		echo"<li><a href='admin.php'>后台管理系统</a></li></ul>";
 	}
 	echo"				</div>
 					</div>
@@ -168,9 +167,10 @@ echo "<html>
 			</div>
 			<div id='wrapper'>
 				<div id='today'>
-					今日要闻<br/>";
+					<table>
+						<tr><td><h2>今日要闻</h2><br/></td></tr>";
 					$db->getNewsTitle();
-	echo"				
+	echo"		</table>		
 				</div>
 				
 			</div>

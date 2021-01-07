@@ -38,17 +38,16 @@ float:right;
 }
 #today table{
     width:80%;
-    margin:20px;
+    margin:20px auto;
 }
 #news{
     width:80%;
-    margin:10px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin:15px auto;
 }
 #newsTitle{
     margin-top: 10px;
+    text-align: center;
+
 }
 #logbutt{
     width:75px;
@@ -159,6 +158,8 @@ float:right;
     margin:0 auto;
     padding:10px;
 
+}
+#discussion_area p{
 }
 #time{
     width:30%;

@@ -22,7 +22,7 @@ if (isset($_COOKIE["ID"]))	{
 			<head>
 				<meta charset='UTF-8'>
 				<title>新闻管理系统</title>
-				<link rel='stylesheet' type='text/css' href='homepagestyle.css'>
+				<link rel='stylesheet' type='text/css' href='homepagestyle.css?v=2'>
 			</head>
 			<body>
 			<div class='container'>
@@ -84,7 +84,7 @@ echo "<html>
 		<head>
 			<meta charset='UTF-8'>
 			<title>新闻管理系统</title>
-			<link rel='stylesheet' type='text/css' href='homepagestyle.css'>
+			<link rel='stylesheet' type='text/css' href='homepagestyle.css?v=2'>
 			<script type='text/javascript'>
 			function myFunction(){
 				if (".!isset($_COOKIE['ID'])."){

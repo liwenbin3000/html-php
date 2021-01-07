@@ -13,23 +13,28 @@ echo"
 			<head>
 				<meta charset='UTF-8'>
 				<title>新闻管理系统</title>
+				<link rel='stylesheet' type='text/css' href='homepagestyle.css?v=2'>
 				<script src='myScript.js'></script>
 			</head>
 			<body>
 			<div class='container'>
 				<div id='head'>
 					<div id='user'>
-						<span>"."{$_SESSION["username"]}"."</span>
-						<a href='quit.php'><button id='logbutt' onclick=''>退出登录</button></a>
-						<a href='homepage.php'><button id='homebutt'>返回主页</button></a>
+					<ul>
+						<li><a href='#'>"."{$_SESSION["username"]}"."</a></li>
+						<li><a href='quit.php'>退出登录</a></li>
+						<li><a href='homepage.php'>返回主页</a></li>
+					</ul>
 					</div>
 				</div>
-			</div>
 			<div id='wrapper'>
-				<div>";
+			<div id='today'>
+				<table>";
 					$db->getNewsTitle1();
 echo"	
-				</div>
+				</table>
 				
+			</div>
+			</div>
 			</div>";
 ?>
