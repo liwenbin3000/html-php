@@ -157,9 +157,13 @@ float:right;
 #discussion_area table{
     margin:0 auto;
     padding:10px;
+    table-layout：fixed;
 
 }
 #discussion_area p{
+}
+#discussion_area td{
+    word-wrap:break-word;word-break:break-all;
 }
 #time{
     width:30%;
