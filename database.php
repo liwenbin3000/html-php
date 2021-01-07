@@ -202,7 +202,7 @@ class dataBase{
 	    }
 		return $flag;
 	}
-	
+	//判断该id的用户是否为管理员
 	public function getAdmin($id){
 		mysqli_select_db($this->conn,"class");
 		$statement="SELECT * FROM `people` where id='$id'";
