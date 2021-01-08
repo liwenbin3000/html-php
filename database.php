@@ -101,9 +101,9 @@ class dataBase
         while ($row = mysqli_fetch_array($res)) {
             echo "<form id='newsForm' method='post' onsubmit='return myFunction()'><tr>
             <h3>标题</h3>
-            <td id='newsTitle' ><input name='newsTitle' type=textarea value=" . $row['title'] . " id='newsTitle'></input></td></tr> 
+            <td id='newsTitle' ><input name='newsTitle' type='text' value=" . $row['title'] . " id='newsTitle'></input></td></tr> 
             <h3>内容</h3>
-            <td id='newsContent'><textarea id='Content' name='Content' value=". $row['content'] . " ></textarea></br> 
+            <td id='newsContent'><textarea id='Content' name='Content'>". $row['content'] . "</textarea></br> 
             <input type=submit value='修改' name='change' id='submit'></input></td></tr>
 			<a href =admin.php><input type=button value='返回管理员界面'></input></a>
 			</form>";

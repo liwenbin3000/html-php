@@ -70,7 +70,7 @@ if($type==2){
 	<div id='news'>
 	<form id='newsForm' method='post' onsubmit='return myFunction()'><tr>
 			<h3>标题</h3>
-	    <td id='newsTitle' ><input name='newsTitle' type=textarea id='newsTitle'></input></td></tr>
+	    <td id='newsTitle' ><input name='newsTitle' type='text' id='newsTitle'></input></td></tr>
 		<h3>内容</h3>
 		<td id='newsContent'><textarea id='Content' name='Content'></textarea><br>
 		<input type=submit value='增加' name='add' id='submit' ></input></td></tr>
