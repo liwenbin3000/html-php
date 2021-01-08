@@ -30,8 +30,11 @@ if (isset($_COOKIE["ID"])) {
 					<div id='user'>
 						<div id='login'>
 						<ul>
-						    <li><a href='homepage.php'>返回主页</a></li>
-						    <li><a href='#'>" . "{$_SESSION["username"]}" . "</a></li>
+						    <li id='text2'><a href='#'>" . "{$_SESSION["username"]}" . "</a></li>
+						    <ul id='list2'>
+						    <li id='changepass'>更改密码</li>
+</ul>
+                            <li><a href='homepage.php'>返回主页</a></li>
                             <li><a href='quit.php'>退出登录</a></li>
                         </ul>
                         </div>
