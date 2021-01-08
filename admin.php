@@ -1,14 +1,14 @@
 <?php
 include "database.php";
-$hostname='localhost';
-$username='root';
-$password='';
-$dbname='class';
+$hostname = 'localhost';
+$username = 'root';
+$password = '';
+$dbname = 'class';
 
 $db = new database();
-$db->connect($hostname,$username,$password,$dbname);
+$db->connect($hostname, $username, $password, $dbname);
 session_start();
-echo"
+echo "
 		<html>
 			<head>
 				<meta charset='UTF-8'>
@@ -21,7 +21,7 @@ echo"
 				<div id='head'>
 					<div id='user'>
 					<ul>
-						<li><a href='#'>"."{$_SESSION["username"]}"."</a></li>
+						<li><a href='#'>" . "{$_SESSION["username"]}" . "</a></li>
 						<li><a href='quit.php'>退出登录</a></li>
 						<li><a href='homepage.php'>返回主页</a></li>
 					</ul>
@@ -30,8 +30,8 @@ echo"
 			<div id='wrapper'>
 			<div id='today'>
 				<table>";
-					$db->getNewsTitle1();
-echo"	
+$db->getNewsTitle1();
+echo "	
 				</table>
 				
 			</div>

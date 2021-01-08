@@ -1,17 +1,17 @@
 <?php
 include "database.php";
-$hostname='localhost';
-$username='root';
-$password='';
-$dbname='class';
+$hostname = 'localhost';
+$username = 'root';
+$password = '';
+$dbname = 'class';
 
 $db = new database();
-$db->connect($hostname,$username,$password,$dbname);
-if (isset($_COOKIE["ID"]))	{	
-	ini_set("session.cookie_lifetime","3600");
-	session_start();
-	$admin=$db->getAdmin($_SESSION["id"]);
-	echo"
+$db->connect($hostname, $username, $password, $dbname);
+if (isset($_COOKIE["ID"])) {
+    ini_set("session.cookie_lifetime", "3600");
+    session_start();
+    $admin = $db->getAdmin($_SESSION["id"]);
+    echo "
 		<html>
 			<head>
 				<meta charset='UTF-8'>
@@ -25,22 +25,22 @@ if (isset($_COOKIE["ID"]))	{
 						<div id='login'>
 						<ul>
 						<li>
-						<a href='#'>"."{$_SESSION["username"]}"."</a>
+						<a href='#'>" . "{$_SESSION["username"]}" . "</a>
     </li>
     <li><a href='quit.php'>退出登录</a></li>";
-	if($admin==1){
-		echo"<li><a href='admin.php'>后台管理系统</a></li></ul>";
-	}
-	echo"				</div>
+    if ($admin == 1) {
+        echo "<li><a href='admin.php'>后台管理系统</a></li></ul>";
+    }
+    echo "				</div>
 					</div>
 				</div>
 				<div id='wrapper'>
 					<div id='today'>
 						<table>
 						<tr><td><h2>今日要闻</h2><br/></td></tr>";
-						
-						$db->getNewsTitle();
-	echo"	
+
+    $db->getNewsTitle();
+    echo "	
 	                </table>
 					</div>
 				</div>
@@ -144,10 +144,9 @@ if (isset($_COOKIE["ID"]))	{
 				</div>
 			</body>
 		</html>	
-		"	;
-}
-else{
-echo "<html>
+		";
+} else {
+    echo "<html>
 		<head>
 			<meta charset='UTF-8'>
 			<title>新闻管理系统</title>
@@ -158,10 +157,10 @@ echo "<html>
 			<div id='head'>
 				<div id='user'>
 					<div id='login'>
-                        <ul><li>
-                        <a href='login.php'>登录</a>
-                        </li></ul>
-						
+                        <ul>
+                            <li><a href='login.php'>登录</a></li>
+                        </ul>
+						<div class='btm'></div>
 					</div>
 				</div>
 			</div>
@@ -169,8 +168,8 @@ echo "<html>
 				<div id='today'>
 					<table>
 						<tr><td><h2>今日要闻</h2><br/></td></tr>";
-					$db->getNewsTitle();
-	echo"		</table>		
+    $db->getNewsTitle();
+    echo "		</table>		
 				</div>
 				
 			</div>
@@ -179,7 +178,7 @@ echo "<html>
     <div id='wrap'>
       <!-- 图片列表 -->
       <div class='img-list'>
-        <img src='https://s1.ax1x.com/2020/09/26/0irm1P.jpg' alt='' />
+        <img src='https://s1.ax1x.com/2020/09/26/0irm1P.jpg'/>
         <img src='https://s1.ax1x.com/2020/09/26/0irQ0g.jpg' alt='' />
         <img src='https://s1.ax1x.com/2020/09/26/0ir8ts.jpg' alt='' />
         <img src='https://s1.ax1x.com/2020/10/11/0gbKoV.jpg' alt='' />
@@ -275,5 +274,5 @@ echo "<html>
 		</body>
 	</html>";
 
-	$db->close();
+    $db->close();
 }

@@ -1,5 +1,5 @@
 <?php
-setcookie("ID","");
+setcookie("ID", "");
 
 session_start();
 session_unset();

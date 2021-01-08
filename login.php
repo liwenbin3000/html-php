@@ -1,39 +1,42 @@
 <?php
-if(isset($_POST["submit"])){
-	include "database.php";
-	$hostname='localhost';
-	$username='root';
-	$password='';
-	$dbname='class';
+if (isset($_POST["submit"])) {
+    include "database.php";
+    $hostname = 'localhost';
+    $username = 'root';
+    $password = '';
+    $dbname = 'class';
 
-	$account=$_POST["username"];
-	$account_password=$_POST["password"];
-	if(isset($_GET['type'])){
-		$type=$_GET['type'];
-	}
-	$db = new database();
-	$db->connect($hostname,$username,$password,$dbname);
-	if($db->checkPeople($account,$account_password)=="用户名不存在"){
-		$tip="用户名不存在";
-	}else if($db->checkPeople($account,$account_password)=="密码错误"){
-		$tip="密码错误";
-	}else{
-		$id=$db->checkPeople($account,$account_password);
-		ini_set("session.cookie_lifetime","3600");
-		session_start();
-		$_SESSION["id"]=$id;
-		$_SESSION["username"]=$db->getPeopleName($id);	
-		setcookie("ID",session_id(),time()+3600);
-	    if($type==0){header("Location:homepage.php?");}
-		else{header("Location:news.php?newsId=$type");}
-	}
-	
-echo 
-"		<html>
+    $account = $_POST["username"];
+    $account_password = $_POST["password"];
+    if (isset($_GET['type'])) {
+        $type = $_GET['type'];
+    }
+    $db = new database();
+    $db->connect($hostname, $username, $password, $dbname);
+    if ($db->checkPeople($account, $account_password) == "用户名不存在") {
+        $tip = "用户名不存在";
+    } else if ($db->checkPeople($account, $account_password) == "密码错误") {
+        $tip = "密码错误";
+    } else {
+        $id = $db->checkPeople($account, $account_password);
+        ini_set("session.cookie_lifetime", "3600");
+        session_start();
+        $_SESSION["id"] = $id;
+        $_SESSION["username"] = $db->getPeopleName($id);
+        setcookie("ID", session_id(), time() + 3600);
+        if ($type == 0) {
+            header("Location:homepage.php?");
+        } else {
+            header("Location:news.php?newsId=$type");
+        }
+    }
+
+    echo
+    "		<html>
 		<head>
 		    <meta charset='UTF-8'>
 		    <title>新闻管理系统</title>
-		    <link rel='stylesheet' type='text/css' href='mystyle.css'>
+		    <link rel='stylesheet' type='text/css' href='mystyle.css?v=2'>
 			<script src='myScript.js'></script>
 		</head>
 		<body>
@@ -50,13 +53,13 @@ echo
 		    </div>
 		</body>
 		</html>";
-}else{
-echo 
-"<html>
+} else {
+    echo
+    "<html>
 <head>
     <meta charset='UTF-8'>
     <title>新闻管理系统</title>
-    <link rel='stylesheet' type='text/css' href='mystyle.css'>
+    <link rel='stylesheet' type='text/css' href='mystyle.css?v=2'>
 	<script src='myScript.js'></script>
 </head>
 <body>
