@@ -19,13 +19,36 @@ if($type==0){
 if($type==1){
 	if(isset($_POST['change'])){
 	$newtitle=$_POST['newsTitle'];
-	$newcontent=$_POST['newsContent'];
+	$newcontent=$_POST['Content'];
 	$db->updateNews($newsid,$newtitle,$newcontent);
 	header("Location:admin.php");
 	
     }
-    else{$db->getNewsAll($newsid);}
-	
+    else{
+		echo "<html>
+		      <head>
+			  <link rel='stylesheet' type='text/css' href='changestyle.css?v=2'>
+			  <script type='text/javascript'>
+			  function myFunction(){
+			  	if (document.getElementById('newsTitle').value == '' || document.getElementById('Content').value == ''){
+			  		alert('内容不能为空');
+			  		return false;
+			  	}
+			  	else{return true;}
+			  }
+			  </script>
+			  </head>
+			  <body>
+			  <div class='container'>
+			  <div id='news'>
+		";
+		$db->getNewsAll($newsid);
+		echo"
+		</div>
+		</div>
+		</body>
+		</html>";
+		}
 }
 if($type==2){
 	echo "

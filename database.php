@@ -56,7 +56,7 @@ class dataBase
         while ($row = mysqli_fetch_array($res)) {
             echo "<tr>";
             echo "<td><a href=news.php?newsId=" . $row['id'] . "><li>" . $row['title'] . "</li></td>";
-            echo "</tr><br/>";
+            echo "</tr>";
 
         }
     }
@@ -99,14 +99,14 @@ class dataBase
         $statement = "SELECT * FROM `news` where id='$id' ";
         $res = mysqli_query($this->conn, $statement);
         while ($row = mysqli_fetch_array($res)) {
-            echo "<form method='post'><tr>";
-            echo "标题";
-            echo "<td id='newsTitle' ><input name='newsTitle' type=textarea value=" . $row['title'] . "></input></td></tr>";
-            echo "内容";
-            echo "<td id='newsContent'><input name='newsContent' type=textarea value=" . $row['content'] . "></input></td></tr>";
-            echo "<td><input type=submit value='修改' name='change'></input></td>";
-            echo "</tr></form>";
-
+            echo "<form id='newsForm' method='post' onsubmit='return myFunction()'><tr>
+            <h3>标题</h3>
+            <td id='newsTitle' ><input name='newsTitle' type=textarea value=" . $row['title'] . " id='newsTitle'></input></td></tr> 
+            <h3>内容</h3>
+            <td id='newsContent'><textarea id='Content' name='Content' value=". $row['content'] . " ></textarea></br> 
+            <input type=submit value='修改' name='change' id='submit'></input></td></tr>
+			<a href =admin.php><input type=button value='返回管理员界面'></input></a>
+			</form>";
         }
     }
 
@@ -212,7 +212,13 @@ class dataBase
             echo "删除数据失败：" . mysqli_error();
         }
     }
-
+    //根据id修改密码
+	public function changePassword($id,$password)
+	{
+		mysqli_select_db($this->conn,"class");
+		$statement="UPDATE `people` SET `password`='$password'WHERE id='$id'";
+		mysqli_query($this->conn, $statement);
+	}
     //根据id获取用户名
     public function getPeopleName($id)
     {

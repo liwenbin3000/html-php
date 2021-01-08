@@ -55,7 +55,7 @@ if (isset($_POST["username"])) {
     }
 } else if (isset($_POST["password-confirm"])) {
     $result .= '<name>password_confirm_1</name>';
-    if (!$_POST["password"] == $_POST["password-confirm"]) {
+    if (!($_POST["password"] == $_POST["password-confirm"])) {
         $result .= '<content>必须和密码一致</content>';
     } else {
         $result .= '<content>密码有效</content>';
