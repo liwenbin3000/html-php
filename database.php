@@ -72,7 +72,7 @@ class dataBase
             echo "<td>" . $row['title'] . "</td>";
             echo "<td><a href='changenews.php?type=0&newsid=" . $row['id'] . "'>删除新闻</a></td>";
             echo "<td><a href='changenews.php?type=1&newsid=" . $row['id'] . "'>修改新闻</a></td>";
-            echo "</tr><br/>";
+            echo "</tr>";
         }
         echo "<a href='changenews.php?type=2&newsid=0'>添加新新闻</a>";
     }

@@ -28,13 +28,22 @@ if($type==1){
 	
 }
 if($type==2){
-	echo "<form method='post'><tr>";
-	    echo "标题";
-	    echo "<td id='newsTitle' ><input name='newsTitle' type=textarea ></input></td></tr>";
-		echo "内容";
-		echo "<td id='newsContent'><input name='newsContent' type=textarea ></input></td></tr>";
-		echo "<td><input type=submit value='增加' name='add'></input></td>";
-	echo "</tr></form>";
+	echo "
+	<html>
+	<head></head>
+	<body>
+	
+	<form id='newsForm' method='post'><tr>
+			标题
+	    <td id='newsTitle' ><input name='newsTitle' type=textarea ></input></td></tr>
+		内容
+		<td id='newsContent'><input name='newsContent' type=textarea ></input></td></tr>
+		<td><input type=submit value='增加' name='add'></input></td>
+	    </tr>
+	</form>
+	</body>
+	</html>
+		";
 	if(isset($_POST['add'])){
 	$title=$_POST['newsTitle'];
 	$content=$_POST['newsContent'];
