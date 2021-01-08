@@ -93,7 +93,7 @@ body {
     height: 100%;
 }
 
-#wrap a {
+#wrap a{
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);

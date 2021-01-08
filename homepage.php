@@ -49,11 +49,11 @@ if (isset($_COOKIE["ID"])) {
     <div id='wrap'>
       <!-- 图片列表 -->
       <div class='img-list'>
-        <img src='https://s1.ax1x.com/2020/09/26/0irm1P.jpg' alt='' />
-        <img src='https://s1.ax1x.com/2020/09/26/0irQ0g.jpg' alt='' />
-        <img src='https://s1.ax1x.com/2020/09/26/0ir8ts.jpg' alt='' />
-        <img src='https://s1.ax1x.com/2020/10/11/0gbKoV.jpg' alt='' />
-        <img src='https://s1.ax1x.com/2020/10/11/0gb7Os.jpg' alt='' />
+        <img src='1.jpg' onclick='fun1()'/>
+        <img src='2.jpg' onclick='fun2()'/>
+        <img src='3.jpg' onclick='fun3()'/>
+        <img src='4.jpg' onclick='fun4()'/>
+        <img src='5.jpg' onclick='fun5()'/>
       </div>
 
       <!-- 小箭头 -->
@@ -140,6 +140,21 @@ if (isset($_COOKIE["ID"])) {
           lock = true;
         }, 500);
       };
+	  function fun1(){
+	  		  window.location.href='news.php?newsId=".$db->getNewNewsId(1)."';
+	  };
+	  function fun2(){
+	  		  window.location.href='news.php?newsId=".$db->getNewNewsId(2)."';
+	  };
+	  function fun3(){
+	  		  window.location.href='news.php?newsId=".$db->getNewNewsId(3)."';
+	  };
+	  function fun4(){
+	  		  window.location.href='news.php?newsId=".$db->getNewNewsId(4)."';
+	  };
+	  function fun5(){
+	  		  window.location.href='news.php?newsId=".$db->getNewNewsId(5)."';
+	  };
     </script>
 				</div>
 			</body>
@@ -178,11 +193,11 @@ if (isset($_COOKIE["ID"])) {
     <div id='wrap'>
       <!-- 图片列表 -->
       <div class='img-list'>
-        <img src='https://s1.ax1x.com/2020/09/26/0irm1P.jpg'/>
-        <img src='https://s1.ax1x.com/2020/09/26/0irQ0g.jpg' alt='' />
-        <img src='https://s1.ax1x.com/2020/09/26/0ir8ts.jpg' alt='' />
-        <img src='https://s1.ax1x.com/2020/10/11/0gbKoV.jpg' alt='' />
-        <img src='https://s1.ax1x.com/2020/10/11/0gb7Os.jpg' alt='' />
+        <img src='1.jpg' onclick='fun1()'/>
+        <img src='2.jpg' onclick='fun2()'/>
+        <img src='3.jpg' onclick='fun3()'/>
+        <img src='4.jpg' onclick='fun4()'/>
+        <img src='5.jpg' onclick='fun5()'/>
       </div>
 
       <!-- 小箭头 -->
@@ -269,6 +284,21 @@ if (isset($_COOKIE["ID"])) {
           lock = true;
         }, 500);
       };
+	  function fun1(){
+	  		  window.location.href='news.php?newsId=".$db->getNewNewsId(1)."';
+	  };
+	  function fun2(){
+	  		  window.location.href='news.php?newsId=".$db->getNewNewsId(2)."';
+	  };
+	  function fun3(){
+	  		  window.location.href='news.php?newsId=".$db->getNewNewsId(3)."';
+	  };
+	  function fun4(){
+	  		  window.location.href='news.php?newsId=".$db->getNewNewsId(4)."';
+	  };
+	  function fun5(){
+	  		  window.location.href='news.php?newsId=".$db->getNewNewsId(5)."';
+	  };
     </script>
 			</div>
 		</body>

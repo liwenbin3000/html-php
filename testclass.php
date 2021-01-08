@@ -16,6 +16,6 @@ $time = "2020-12-27";
 //实例化对象
 $db = new database();
 $db->connect($hostname, $username, $password, $dbname);
-$db->updateNews(2, "alp2", "abababab");
+echo $db->getNewNewsId(1);
 $db->close();
 ?>

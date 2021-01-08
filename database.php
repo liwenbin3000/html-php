@@ -46,7 +46,7 @@ class dataBase
             echo "删除数据失败：" . mysqli_error();
         }
     }
-
+    
     //获取询问标题并且按照顺序输出
     public function getNewsTitle()
     {
@@ -255,7 +255,18 @@ class dataBase
         }
         return $admin;
     }
+	//获取时间顺序最后的新闻id
+	public function getNewNewsId($num){
+		mysqli_select_db($this->conn, "class");
+		$statement = "SELECT * FROM `news`";
+		$res = mysqli_query($this->conn, $statement);
+		$rownum = $res->num_rows;
+		mysqli_data_seek($res,$rownum-$num);
+		//取出数据
+		$row = mysqli_fetch_assoc($res);
+		return $row['id'];
+	}
 }
-
+    
 
 ?>
