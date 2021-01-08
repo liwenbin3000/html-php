@@ -30,17 +30,22 @@ if($type==1){
 if($type==2){
 	echo "
 	<html>
-	<head></head>
+	    <link rel='stylesheet' type='text/css' href='changestyle.css?v=2'>
+	</head>
 	<body>
-	
+	<div class='container'>
+	<div id='news'>
 	<form id='newsForm' method='post'><tr>
-			标题
-	    <td id='newsTitle' ><input name='newsTitle' type=textarea ></input></td></tr>
-		内容
-		<td id='newsContent'><input name='newsContent' type=textarea ></input></td></tr>
-		<td><input type=submit value='增加' name='add'></input></td>
+			<h3>标题</h3>
+	    <td id='newsTitle' ><input name='newsTitle' type=textarea id='newsTitle'></input></td></tr>
+		<h3>内容</h3>
+		<td id='newsContent'><textarea id='Content'></textarea><br>
+		<input type=submit value='增加' name='add' id='submit'></input></td></tr>
+		
 	    </tr>
 	</form>
+	</div>
+	</div>
 	</body>
 	</html>
 		";

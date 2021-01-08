@@ -74,7 +74,7 @@ class dataBase
             echo "<td><a href='changenews.php?type=1&newsid=" . $row['id'] . "'>修改新闻</a></td>";
             echo "</tr>";
         }
-        echo "<a href='changenews.php?type=2&newsid=0'>添加新新闻</a>";
+        echo "<tr><td><a href='changenews.php?type=2&newsid=0' >添加新新闻</a></td></tr>";
     }
 
     //获取相应id的新闻内容

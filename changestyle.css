@@ -1,0 +1,50 @@
+
+body{
+    background: url("background2.jpg") fixed no-repeat;
+}
+.container{
+    width: 80vw;
+    height: 80vh;
+    margin: 0 auto;
+}
+#news{
+    width: 60%;
+    height: 100%;
+    margin: 20px auto;
+    border: 2px solid lightslategray;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    text-align: center;
+}
+#news h3{
+    margin:20px auto;
+}
+#newsTitle{
+    width:60%;
+    height:5%;
+    border: 2px solid lightslategray;
+    border-radius: 8px;
+}
+#Content{
+    width: 60%;
+    height: 60%;
+    resize: none;
+    margin: 5px auto;
+    border: 2px solid lightslategray;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 5px;
+}
+#submit{
+    width: 75px;
+    height: 30px;
+    margin-top: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid lightslategray;
+}

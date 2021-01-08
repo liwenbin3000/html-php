@@ -29,7 +29,8 @@ echo "
 				</div>
 			<div id='wrapper'>
 			<div id='today'>
-				<table>";
+				<table>
+				<tr><td><h3>新闻管理</h3></td></tr>";
 $db->getNewsTitle1();
 echo "	
 				</table>
