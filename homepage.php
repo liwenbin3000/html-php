@@ -24,9 +24,12 @@ if (isset($_COOKIE["ID"])) {
 					<div id='user'>
 						<div id='login'>
 						<ul>
-						<li>
+						<li id='text1'>
 						<a href='#'>" . "{$_SESSION["username"]}" . "</a>
     </li>
+    <ul id='list1'>
+    <li id='changepass'>更改密码</li>
+</ul>
     <li><a href='quit.php'>退出登录</a></li>";
     if ($admin == 1) {
         echo "<li><a href='admin.php'>后台管理系统</a></li></ul>";
