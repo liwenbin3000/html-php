@@ -73,8 +73,8 @@ if($type==2){
 	    <td id='newsTitle' ><input name='newsTitle' type='text' id='newsTitle'></input></td></tr>
 		<h3>内容</h3>
 		<td id='newsContent'><textarea id='Content' name='Content'></textarea><br>
-		<input type=submit value='增加' name='add' id='submit' ></input></td></tr>
-		<a href =admin.php><input type=button value='返回管理员界面'></input></a>
+		<input type=submit value='增加' name='add' id='submit' ></input>
+		<a href =admin.php><input type=button value='返回管理员界面' id='back'></input></a></td></tr>
 	    </tr>
 	</form>
 	</div>

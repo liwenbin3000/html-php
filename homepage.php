@@ -28,7 +28,7 @@ if (isset($_COOKIE["ID"])) {
 						<a href='#'>" . "{$_SESSION["username"]}" . "</a>
     </li>
     <ul id='list1'>
-    <li id='changepass'><a href='changepassword.php'>更改密码</a></li>
+    <li class='changepass'><a href='changepassword.php'>更改密码</a></li>
 </ul>
     <li><a href='quit.php'>退出登录</a></li>";
     if ($admin == 1) {

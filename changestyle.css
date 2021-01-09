@@ -48,11 +48,19 @@ body{
     cursor: pointer;
     border: 2px solid lightslategray;
 }
+#back{
+    width: 120px;
+    height: 30px;
+    margin-top: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid lightslategray;
+}
 #a{
-	width: 75px;
-	height: 30px;
-	margin-top: 15px;
-	border-radius: 8px;
-	cursor: pointer;
-	border: 2px solid lightslategray;
+    width: 75px;
+    height: 30px;
+    margin-top: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid lightslategray;
 }

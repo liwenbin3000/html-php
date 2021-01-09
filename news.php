@@ -32,7 +32,7 @@ if (isset($_COOKIE["ID"])) {
 						<ul>
 						    <li id='text2'><a href='#'>" . "{$_SESSION["username"]}" . "</a></li>
 						    <ul id='list2'>
-						    <li id='changepass'>更改密码</li>
+						    <li class='changepass'><a href='changepassword.php'>更改密码</a></li>
 </ul>
                             <li><a href='homepage.php'>返回主页</a></li>
                             <li><a href='quit.php'>退出登录</a></li>

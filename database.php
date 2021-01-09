@@ -105,7 +105,7 @@ class dataBase
             <h3>内容</h3>
             <td id='newsContent'><textarea id='Content' name='Content'>". $row['content'] . "</textarea></br> 
             <input type=submit value='修改' name='change' id='submit'></input></td></tr>
-			<a href =admin.php><input type=button value='返回管理员界面'></input></a>
+			<a href =admin.php><input type=button value='返回管理员界面' id='back'></input></a>
 			</form>";
         }
     }
