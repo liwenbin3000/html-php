@@ -29,10 +29,10 @@ body {
 #wrapper {
     display: block;
 }
-
+/*新闻标题及内容div*/
 #today {
     width: 60%;
-    height: 100%;
+    min-height: 100%;
     float: left;
     margin: 20px;
     border: 2px solid lightslategray;
@@ -47,9 +47,19 @@ body {
     width: 80%;
     margin: 20px auto;
 }
+#title1{
+    width:75%;
+}
+#today button{
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid lightslategray;
+}
 #today a{
     color: #000000;
+    text-decoration: none;
 }
+/*按钮动态效果*/
 #list1{
     background: white;
     text-align: center;
@@ -89,6 +99,7 @@ body {
 #list2:hover{
     top: 60px;
 }
+
 #news {
     width: 80%;
     margin: 15px auto;
@@ -107,7 +118,7 @@ body {
     border-radius: 8px;
     cursor: pointer;
 }
-
+/*图片轮播div*/
 #picturejs {
     margin: 20% auto;
 }
@@ -157,7 +168,7 @@ body {
 #wrap a.right {
     right: 0;
 }
-
+/*发表评论区div*/
 #comment_area {
     width: 60%;
     height: 30%;
@@ -200,9 +211,10 @@ body {
     -webkit-backdrop-filter: blur(4px);
     border-radius: 5px;
 }
-
+/*已发评论*/
 #discussion_area {
     width: 30%;
+    min-height: 30%;
     float: left;
     margin: 20px;
     border: 2px solid lightslategray;
@@ -216,7 +228,7 @@ body {
 #discussion_area table {
     margin: 0 auto;
     padding: 10px;
-    table-layout：fixed;
+    table-layout:fixed;
 
 }
 

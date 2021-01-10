@@ -69,9 +69,9 @@ class dataBase
         $res = mysqli_query($this->conn, $statement);
         while ($row = mysqli_fetch_array($res)) {
             echo "<tr>";
-            echo "<td>" . $row['title'] . "</td>";
-            echo "<td><a href='changenews.php?type=0&newsid=" . $row['id'] . "'>删除新闻</a></td>";
-            echo "<td><a href='changenews.php?type=1&newsid=" . $row['id'] . "'>修改新闻</a></td>";
+            echo "<td id='title1'>" . $row['title'] . "</td>";
+            echo "<td><button><a href='changenews.php?type=0&newsid=" . $row['id'] . "'>删除新闻</a></button></td>";
+            echo "<td><button><a href='changenews.php?type=1&newsid=" . $row['id'] . "'>修改新闻</a></button></td>";
             echo "</tr>";
         }
         echo "<tr><td><a href='changenews.php?type=2&newsid=0' >添加新新闻</a></td></tr>";
