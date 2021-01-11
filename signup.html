@@ -21,6 +21,7 @@
         <a href="login.php">返回登录</a>
     </form>
     <script type="text/javascript">
+		//在提交按钮上添加内容不符时不会默认跳转
         subObj = document.getElementById("submit");
         if (subObj.addEventListener) {
             subObj.addEventListener("click", validateAll, false)

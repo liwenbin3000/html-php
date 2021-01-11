@@ -43,7 +43,7 @@ function checkpw($str)
     }
     return true;
 }
-
+//将获得的数据进行处理在将得到的结果传回原页面
 $result = '<?xml version="1.0" encoding="utf8"?><item>';
 if (isset($_POST["username"])) {
     $result .= '<name>username_1</name>';
