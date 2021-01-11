@@ -1,4 +1,5 @@
 <?php
+//注册ajax后台
 function checkname($str)
 {
     $length = strlen($str);
@@ -13,7 +14,7 @@ function checkname($str)
     }
     return true;
 }
-
+//判断名字是否重复
 function checkonlyname($str)
 {
     $conn = mysqli_connect("localhost", "root", "");
@@ -27,7 +28,7 @@ function checkonlyname($str)
     }
     return true;
 }
-
+//判断密码是否符合规范
 function checkpw($str)
 {
     $length = strlen($str);

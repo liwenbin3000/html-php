@@ -1,4 +1,6 @@
+
 <?php
+//删除评论后台
 include "database.php";
 $hostname = 'localhost';
 $username = 'root';

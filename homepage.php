@@ -7,6 +7,8 @@ $dbname = 'class';
 
 $db = new database();
 $db->connect($hostname, $username, $password, $dbname);
+
+//登陆界面
 if (isset($_COOKIE["ID"])) {
     ini_set("session.cookie_lifetime", "3600");
     session_start();
@@ -42,7 +44,7 @@ if (isset($_COOKIE["ID"])) {
 						<table>
 						<tr><td><h2>今日要闻</h2><br/></td></tr>";
 
-    $db->getNewsTitle();
+    $db->getNewsTitle();//获取标题并排列输出
     echo "	
 	                </table>
 					</div>
@@ -163,7 +165,9 @@ if (isset($_COOKIE["ID"])) {
 			</body>
 		</html>	
 		";
-} else {
+} 
+//未登陆界面
+else {
     echo "<html>
 		<head>
 			<meta charset='UTF-8'>

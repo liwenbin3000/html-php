@@ -1,4 +1,5 @@
 <?php
+//修改新闻后台
 include "database.php";
 $hostname='localhost';
 $username='root';
@@ -10,12 +11,14 @@ $db->connect($hostname,$username,$password,$dbname);
 
 $newsid=$_GET["newsid"];
 $type=$_GET["type"];
+//删除新闻
 if($type==0){
 	$db->deleteComment($newsid);
 	$db->deleteNews($newsid);
 	
 	header("Location:admin.php");
 }
+//修改新闻
 if($type==1){
 	if(isset($_POST['change'])){
 	$newtitle=$_POST['newsTitle'];
@@ -50,6 +53,7 @@ if($type==1){
 		</html>";
 		}
 }
+//增加新闻
 if($type==2){
 	echo "
 	<html>

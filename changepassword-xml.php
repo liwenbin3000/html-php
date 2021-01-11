@@ -1,4 +1,5 @@
 <?php
+//修改密码ajax
 function checkpw($str)
 {
     $length = strlen($str);

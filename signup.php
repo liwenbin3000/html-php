@@ -1,4 +1,5 @@
 <?php
+//注册后台
 include "database.php";
 $hostname = 'localhost';
 $username = 'root';

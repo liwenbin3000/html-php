@@ -1,4 +1,5 @@
 <?php
+//登陆后台
 if (isset($_POST["submit"])) {
     include "database.php";
     $hostname = 'localhost';
@@ -13,6 +14,7 @@ if (isset($_POST["submit"])) {
     }
     $db = new database();
     $db->connect($hostname, $username, $password, $dbname);
+	//判断登录是否有效
     if ($db->checkPeople($account, $account_password) == "用户名不存在") {
         $tip = "用户名不存在";
     } else if ($db->checkPeople($account, $account_password) == "密码错误") {
@@ -30,7 +32,7 @@ if (isset($_POST["submit"])) {
             header("Location:news.php?newsId=$type");
         }
     }
-
+  //输入登陆错误信息界面
     echo
     "		<html>
 		<head>
@@ -53,7 +55,9 @@ if (isset($_POST["submit"])) {
 		    </div>
 		</body>
 		</html>";
-} else {
+}
+ //输入登录信息的界面
+ else {
     echo
     "<html>
 <head>

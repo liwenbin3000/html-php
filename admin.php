@@ -1,4 +1,5 @@
 <?php
+//管理员管理界面
 include "database.php";
 $hostname = 'localhost';
 $username = 'root';

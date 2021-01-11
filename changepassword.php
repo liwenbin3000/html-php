@@ -1,4 +1,5 @@
 <?php
+//修改密码后台
 include "database.php";
 $hostname='localhost';
 $username='root';
@@ -7,7 +8,7 @@ $dbname='class';
 
 $db = new database();
 $db->connect($hostname,$username,$password,$dbname);
-
+//修改密码
 if(isset($_POST['submit']))
 {
 	$newpassword=$_POST['password'];
@@ -15,6 +16,7 @@ if(isset($_POST['submit']))
 	$db->changepassword($_SESSION['id'],$newpassword);
 	 header("Location:homepage.php");
 }
+//输出修改密码界面
 else{
 echo"
 <html>
